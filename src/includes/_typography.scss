@@ -1,0 +1,115 @@
+// Fonts:
+$font-size-base: 14px;
+$sidebar-block: ceil(($font-size-base * 1.25)) !default; // ~18px
+// Breakpoints:
+// Note: If you're using the Breakpoint mixin,
+// make sure to use the correct syntax: http://breakpoint-sass.com/
+$break-small: max-width 480px;
+$break-medium: max-width 768px;
+$break-large: max-width 980px;
+////////////////////////
+// Vendor Settings:
+////////////////////////
+// Legacy IE Support For Compass:
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: true;
+
+html,
+body {
+    font-family: $font-family-sans-serif !important;
+    font-size: $font-size-base;
+}
+
+span.our-number {
+    font-size: 1.6em;
+}
+
+.navbar-nav li a {
+    font-family: $font-family-oswald;
+    font-size: $font-size-base * 1.07;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+h1#main-title {
+    color: $gray-dark-60-percent;
+    text-transform: uppercase;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    font-family: $font-family-oswald;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: $gray-dark-70-percent;
+    border-bottom: $blue solid 3px;
+    padding-bottom: .4em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+h4.featured {
+    margin-top: 0.5em;
+}
+
+h4.comTitle {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: $blue !important;
+}
+
+a h4 {
+    color: $gray-dark-70-percent;
+}
+
+p.featured {
+    font-size: $font-size-base*0.85;
+}
+
+#cover-title {
+    font-size: $font-size-base*1.2;
+    font-weight: 600;
+    line-height: 1.2;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    width: 52.5%;
+}
+
+#cover-subtitle {
+    font-size: $font-size-base*0.9;
+    font-weight: 600;
+    white-space: pre;
+    border-top: 2px solid black;
+    padding-top: 0.3em;
+    width: min-content;
+}
+
+#tagline-block {
+    font-size: $font-size-base*3;
+    font-family: $font-boxes-homepage;
+    font-weight: 400;
+}
+
+#tagline-blockxs {
+    color: white;
+    opacity: .8;
+    padding: 1em 0 .5em 0;
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: auto;
+    position: relative;
+    font-size: $font-size-base*2.5;
+    font-family: $font-boxes-homepage;
+    font-weight: 400;
+    top: 28%;
+}

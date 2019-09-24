@@ -1,0 +1,241 @@
+// Brand Bar
+#brand-bar {
+  background: $grey-5-percent; //$grey-70-percent $blue
+  margin: 0;
+  padding: 0;
+  border: none !important;
+  border-bottom: $blue solid 5px !important;
+  height: 41px;
+  min-height: inherit;
+
+  .navbar-header {
+    padding: ($font-size-base * 0.7) 0 ($font-size-base * 0.3) 0px;
+    width: 100%;
+    padding-right: ($font-size-base * 0.8);
+  }
+}
+
+#navbarSupportedContent {
+  input.form-control {
+    width: 8em;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  li.nav-item {
+    margin-right: 0.5rem;
+  }
+}
+
+.bg-light {
+    background-color: white !important;
+}
+
+#colors-bottom {
+  background: url('./images/sdgbg.jpg');
+  background-repeat: repeat;
+  padding: 0px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  // z-index: 1020;
+}
+
+.brandbar-header {
+  .fa-home {
+    font-size: ($font-size-base*1.07); // 14
+    margin-left: 2px;
+  }
+
+  padding-top: 10px;
+  font-family: $font-family-sans-serif;
+
+  a {
+    padding: 0;
+    font-size: ($font-size-base * 0.95); // ~12px
+    line-height: ($font-size-base * 1.31); // ~17px
+    font-weight: $font-normal; // 400
+    letter-spacing: $letterspacing-less-wide;
+    color: black;
+
+    @media (max-width: $screen-sm-min) {
+      // Mobile styles
+      font-size: ($font-size-base * 0.93); // ~12px
+      letter-spacing: -0.02em;
+    }
+  }
+}
+
+#sdgkplogo {
+  background: url('./images/sdgkplogo2.svg') no-repeat;
+  height: 55px;
+  // width: 255px;
+  margin-top: 8px;
+}
+
+.sdgkplogo_normal {
+  height: 55px !important;
+  width: 255px;
+}
+
+.sdgkplogo_small {
+  height: 40px !important;
+  width: 183px;
+  margin-top: 6px !important;
+}
+
+#stickymenu{
+  background-color: white;
+  padding-top: 1em;
+}
+
+// Masthead
+header.navbar-default {
+  margin-top: 0 !important;
+  margin-bottom: 10px;
+  padding: 34px 0 0 0;
+  background: white;
+
+  &.navbar {
+    border: none;
+  }
+
+  .navbar-header {
+    width: 100%;
+    padding: 40px 0 ($grid-gutter-width * 1.25) 0px;
+
+    .navbar-toggle {
+      body.i18n-ar & {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .logo-wrapper {
+    padding: 2px ($font-size-base * 1.1) 0 0;
+
+    body.i18n-ar & {
+      // Arabic override
+      padding: 2px 0 0 ($font-size-base * 1.1);
+    }
+
+    a.logo {
+      width: 130px;
+      height: 90px;
+      margin: 0;
+      padding: 0;
+      display: block;
+
+      //@include replace-text("un-emblem.jpg", 0, 0);
+      @media (max-width: $screen-sm-min) {
+        //@include replace-text("un-logo-sm.png", 0, 0);
+        //width: 159px;
+        //height: 40px;
+      }
+    }
+  }
+
+  .site-name {
+    padding-top: 15px;
+    padding-bottom: 8px;
+    padding-left: 0;
+    font-weight: $font-bold;
+    font-size: 19pt;
+    line-height: ($font-size-base * 1.75); // ~24px
+    color: $gray-40-percent;
+    font-family: $font-family-sans-serif;
+
+    // Large Screens
+    @media (max-width: $screen-lg-min) {}
+
+    // Medium Screens
+    @media (max-width: $screen-md-min) {
+      width: 66%;
+      padding-top: 3px;
+    }
+
+    // Small Screens
+    @media (max-width: $screen-sm-min) {
+      width: 46%;
+      padding-top: 2px;
+      font-size: ($font-size-base * 1.3); // ~18px
+      line-height: ($font-size-base * 1.5); // ~21px
+    }
+
+    @media (max-width: $screen-sm-max) {
+      // hide on smaller screens
+    }
+
+    // Extra Small Screens
+    @media (max-width: $screen-xs) {
+      font-size: ($font-size-base * 1.15); // ~16px
+    }
+
+    // Language Overrides
+    body.i18n-zh-hans & {
+      // Chinese Override
+      font-size: 32px;
+      line-height: 47px;
+      letter-spacing: 0.2em;
+    }
+  }
+
+  .social-links {
+    body.i18n-ar & {
+      // Arabic Override
+      right: auto;
+      left: 8px;
+    }
+
+    @media (max-width: $screen-lg-min) {
+      padding-top: 0;
+    }
+
+    body.i18n-fr & {
+
+      // French Override
+      @media (max-width: $screen-md-max) {
+        bottom: 67px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      // hide on smaller screens
+      display: none;
+    }
+
+    ul {
+      //@include no-bullets;
+      margin: 0 0 0 0;
+
+      body.i18n-ar & {
+        // Arabic Override
+        margin: 0 0 0 ($font-size-base);
+      }
+
+      li a {
+        float: right;
+        //@include unstyled-link;
+        color: #c1c1c1; //$gray-un70
+        margin-left: ($font-size-base * 0.95);
+      }
+    }
+  }
+}
+
+#block-un-search-0 {
+  @media (min-width: $screen-sm-min) {
+    // Mobile styles
+    margin-top: 20px;
+  }
+
+  input.form-text {
+    background: $gray-lighter image-url("btn-search.png") no-repeat scroll 93% 10px;
+    border: medium none;
+    color: $gray-dark-70-percent;
+    font-weight: $font-bold;
+    padding: 10px;
+    width: 100%;
+  }
+}

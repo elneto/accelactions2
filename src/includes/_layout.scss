@@ -1,0 +1,76 @@
+////////////////////////
+// Keeping structural CSS separate from stylistic CSS can be helpful. This file
+// is a good place for page scaffolding elements and properties like width, height,
+// margin, and padding.
+////////////////////////
+
+// @media (max-width: $screen-xs-min){
+//
+//
+// }
+
+@media (max-width: $screen-xs-max) {
+    .pull-xs-left {
+        float: left;
+    }
+
+    .pull-xs-right {
+        float: right;
+    }
+
+    #top-pagination {
+        margin-top: 2em;
+        justify-content: center;
+    }
+
+    .list-inline {
+        li {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+    }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .pull-sm-left {
+        float: left;
+    }
+
+    .pull-sm-right {
+        float: right;
+    }
+
+    #tagline-block {
+        font-size: $font-size-base*2.5;
+    }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    .pull-md-left {
+        float: left;
+    }
+
+    .pull-md-right {
+        float: right;
+    }
+
+    #navbarSupportedContent {
+        input.form-control {
+            width: 5em !important;
+        }
+    }
+
+    #tagline-block {
+        font-size: $font-size-base*3;
+    }
+}
+
+@media (min-width: $screen-lg-min) {
+    .pull-lg-left {
+        float: left;
+    }
+
+    .pull-lg-right {
+        float: right;
+    }
+}
