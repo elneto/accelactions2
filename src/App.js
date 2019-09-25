@@ -203,6 +203,11 @@ function App() {
     <div className="App">
       <div className="row">
         <div className="col">
+          <h2 id="subtitle">Total: {total}</h2>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
           <Bar
             data={graphData}
             width={100}
@@ -222,7 +227,7 @@ function App() {
           />
         </div>
       </div>
-      <p>&nbsp;</p>
+
       <div className="row">
         <div className="col-md-9">
           <h3>Featured</h3>

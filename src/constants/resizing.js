@@ -27,7 +27,6 @@ const resizingFunctions = () => {
   var sdgkplogo = document.getElementById("sdgkplogo");
   $(document).scroll(function() {
     resizeScrollYoo();
-    //console.log("scrolling..." + $(window).scrollTop());
   });
   $(window).resize(function() {
     if ($(window).width() < 576) {
