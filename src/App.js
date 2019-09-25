@@ -8,6 +8,7 @@ import Select from "./components/Select.js";
 import { Bar } from "react-chartjs-2";
 import * as Constants from "./constants";
 import { FEATUREDARRAY } from "./constants/index.js";
+import resizingFunctions from "./constants/resizing.js";
 function rnToHTMLObj(str, maxchar, commitment_nr) {
   const regex = /\\+r\\+n/gi;
   let clean = str.replace(regex, "<br>");
@@ -388,4 +389,5 @@ function App() {
     </div>
   );
 }
+resizingFunctions();
 export default App;
