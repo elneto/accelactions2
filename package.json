@@ -2,7 +2,7 @@
   "name": "accelactions2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sustainabledevelopment.un.org/sdgactions",
+  "homepage": "https://sustainabledevelopment.un.org/content/accelactions/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
