@@ -62,7 +62,313 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div
+      id="brand-bar"
+      class="navbar navbar-default navbar-fixed-top"
+      role="navigation"
+    >
+      <!-- UN global brand bar -->
+      <div class="container brandbar-header">
+        <div class="row align-items-center">
+          <!-- Brand and toggle get grouped for better mobile display -->
+
+          <div class="pl-3 mb-2">
+            <span class="fas fa-home"></span>
+          </div>
+          <div class="ml-2 mb-2">
+            <a class="navbar-brand" href="https://www.un.org//"
+              >Welcome to the United Nations</a
+            >
+          </div>
+        </div>
+        <div class="mr-2 mb-2 d-none d-sm-block">
+          <a
+            class="navbar-brand mr-0"
+            href="//sustainabledevelopment.un.org/about"
+            >Division for Sustainable Development Goals</a
+          >
+          |
+          <a
+            class="navbar-brand mr-0"
+            href="//www.un.org/development/desa/en/"
+            target="_blank"
+            >DESA</a
+          >
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /UN global brand bar and language switcher -->
+    <div class="sticky-top" id="stickymenu">
+      <div class="container">
+        <div class="row">
+          <div class="col-auto mr-auto">
+            <a href="//sustainabledevelopment.un.org/" class="order-first">
+              <div
+                alt="logo"
+                id="sdgkplogo"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Home"
+                class="img-fluid sdgkplogo_normal"
+              ></div>
+            </a>
+          </div>
+          <div class="col-auto">
+            <nav class="navbar  navbar-light bg-light order-last d-lg-none">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar  navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="//sustainabledevelopment.un.org/"
+                  style="padding-left: 0;"
+                  >HOME</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="//sustainabledevelopment.un.org/sdgs"
+                  >SDGs</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="//sustainabledevelopment.un.org/hlpf"
+                  >HLPF</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="//sustainabledevelopment.un.org/memberstates"
+                  >States</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="//sustainabledevelopment.un.org/topics/sids"
+                  >SIDS</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="//sustainabledevelopment.un.org/unsystem"
+                  >UN System</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="//sustainabledevelopment.un.org/mgos"
+                  >Stakeholders</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="//sustainabledevelopment.un.org/topics"
+                  >Topics</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown2"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Partnerships</a
+                >
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                  <a
+                    class="dropdown-item"
+                    href="//sustainabledevelopment.un.org/partnerships/about"
+                    >About partnerships</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="//sustainabledevelopment.un.org/partnerships/"
+                    >Partnerships for SDGs Platform</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="//sustainabledevelopment.un.org/partnerships/browse"
+                    >Browse</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="//sustainabledevelopment.un.org/partnerships/register"
+                    >Register a partnership</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Resources
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a
+                    class="dropdown-item"
+                    href="//sustainabledevelopment.un.org/sdinaction"
+                    >Calendar</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item"
+                    href="//sustainabledevelopment.un.org/conferences"
+                    >Conferences</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="//sustainabledevelopment.un.org/frameworks"
+                    >Outcomes and Frameworks</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="//sustainabledevelopment.un.org/about"
+                  >About</a
+                >
+              </li>
+            </ul>
+            <form
+              class="form-inline my-2 my-lg-0"
+              action="https://sustainabledevelopment.un.org/index.php?menu=1629"
+              method="get"
+            >
+              <input type="hidden" name="menu" value="1629" />
+              <a href="#" onclick="return showHideAccount();">
+                <i class="fas fa-user mr-2"></i>
+              </a>
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button type="submit" class="btn btn-primary" id="btn-hpsearch">
+                <i class="fas fa-search"></i>
+              </button>
+              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div id="colors-bottom"></div>
+    </div>
+    <div id="accountbox" class="accountbox"></div>
+
+    <section id="latest-section" class="container">
+      <div class="row">
+        <div class="col">
+          <h1 id="main-title">SDG Acceleration Actions</h1>
+          <p class="lead">
+            “SDG Acceleration Actions” are initiatives voluntarily undertaken by
+            countries and other stakeholders to contribute to a speeded up
+            implementation of the 2030 Agenda. Such acceleration actions can be
+            registered by national Governments, local and regional governments,
+            the United Nations system, other intergovernmental organizations,
+            international and regional financial institutions, major groups and
+            other stakeholders including the private sector, civil society
+            organizations, academic and research institutions, the scientific
+            community, and other actors - individually or in partnership.
+            <a
+              href="https://sustainabledevelopment.un.org/sdgsummit#acceleration-actions"
+              target="_blank"
+              >[Read more about the SDG Acceleration actions]</a
+            >
+          </p>
+          <div id="root"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container footer">
+      <div id="block-menu-footer-links" class="row list-inline footer-brand">
+        <div class="col-md-12">
+          <div class="float-left flip footer-emblem">
+            <a href="https://un.org/en/index.html" title="Home"
+              ><span class="site-name">United Nations</span></a
+            >
+          </div>
+          <div class="float-right flip">
+            <ul class="nav-bar list-inline">
+              <li>
+                <a
+                  href="http://www.un.org/en/sections/about-website/site-index/index.html"
+                  >A-Z Site Index</a
+                >
+              </li>
+              <li>
+                <a href="http://www.un.org/en/contact-us/index.html">Contact</a>
+              </li>
+              <li>
+                <a href="http://www.un.org/en/aboutun/copyright/index.html"
+                  >Copyright</a
+                >
+              </li>
+              <li>
+                <a
+                  href="http://www.un.org/en/sections/about-un/frequently-asked-questions/index.html"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="http://www.un.org/en/sections/aboutun/fraud-alert/index.html"
+                  >Fraud Alert</a
+                >
+              </li>
+              <li>
+                <a
+                  href="http://www.un.org/en/sections/about-website/privacy-notice/index.html"
+                  >Privacy Notice</a
+                >
+              </li>
+              <li style="border-right:none;">
+                <a
+                  href="http://www.un.org/en/sections/about-website/terms-use/index.html"
+                  >Terms of Use</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      window.ActionNetwork = 90;
+      window.SHOWTOTAL = true;
+      window.FEATUREDARRAY = [32640, 33186, 32811, 33281, 33439, 33398, 33636];
+      window.FLUSHCACHE = 0;
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
