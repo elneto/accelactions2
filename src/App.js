@@ -128,8 +128,8 @@ function App() {
     setStart(s);
   }
   const directionOptions = [
-    { asc: "Ascendent (a-z, or older first)" },
-    { desc: "Descendent (z-a or most recent first)" }
+    { asc: "Ascending (a-z, or older first)" },
+    { desc: "Descending (z-a or most recent first)" }
   ];
   const orderOptions = [
     { dateadded: "Date registered" },
@@ -222,12 +222,20 @@ function App() {
               },
               legend: {
                 display: false
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      beginAtZero: true
+                    }
+                  }
+                ]
               }
             }}
           />
         </div>
       </div>
-
       <div className="row">
         <div className="col-md-9">
           <h3>Featured</h3>
