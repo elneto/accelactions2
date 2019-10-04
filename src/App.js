@@ -186,7 +186,10 @@ function App() {
         </div>
       );
     }
-    return content;
+    if (f.length > 0)
+      return content;
+    else
+      return `Loading...`;
   };
   const willShowTotal = () => {
     let message = <div>Browse</div>;
@@ -197,13 +200,16 @@ function App() {
         </div>
       );
     }
-    return message;
+    if (total > 0 )
+      return message;
+    else
+      return `Loading...`;
   };
   return (
     <div className="App">
       <div className="row">
         <div className="col">
-          <h2 id="subtitle">Total: {total}</h2>
+          <h2 id="subtitle">{total > 0 ? `Total: `+ total : `Loading...`}</h2>
         </div>
       </div>
       <div className="row">
@@ -372,12 +378,15 @@ function App() {
       <p>&nbsp;</p>
       <div className="row">
         <div className="col">
-          {Object.keys(commitments).map((key, index) => (
-            <Commitment
-              key={commitments[key].commitment_nr}
-              commitment={commitments[key]}
-            ></Commitment>
-          ))}
+          {
+            commitments.length > 0 ?
+            Object.keys(commitments).map((key, index) => (
+              <Commitment
+                key={commitments[key].commitment_nr}
+                commitment={commitments[key]}
+              ></Commitment>
+            )) : `Loading...`
+          }
           <div
             style={{
               display: "flex",
