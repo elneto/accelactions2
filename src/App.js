@@ -168,17 +168,15 @@ function App() {
     ]
   };
   const featuContent = () => {
-    const content = [];
-    let f = featured;
-    for (let i = 0; i < featured.length; i++) {
-      content.push(
-        <CommitmentFeatured
-          key={f[i].commitment_nr}
-          commitment={f[i]}
+    let content = featured.map(commitment => {
+      
+      return <CommitmentFeatured
+          key={commitment.commitment_nr}
+          commitment={commitment}
         ></CommitmentFeatured>
-      );
-    }
-    if (f.length > 0)
+    });
+
+    if (featured.length > 0)
       return content;
     else
       return `Loading...`;
