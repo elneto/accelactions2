@@ -29,6 +29,7 @@ function App() {
   const [start, setStart] = useState(0);
   const [total, setTotal] = useState(0);
   const [comsPerSDGs, setComsPerSDGs] = useState({});
+  const [moreInfo, setMoreInfo] = useState({});
   const [featured, setFeatured] = useState([]);
   const Rows = 10;
   async function fetchData(
@@ -107,6 +108,18 @@ function App() {
           .catch(err => console.log("API SDGS error: " + err));
       });
     }
+
+    if (Object.entries(moreInfo).length === 0) {
+      fetchHTML();
+    }
+  }
+  async function fetchHTML() {
+    const utf8Decoder = new TextDecoder("utf-8");
+    const res = await fetch(process.env.PUBLIC_URL + "/accel/moreinfo.html");
+    const reader = res.body.getReader();
+    let { value: chunk, done: readerDone } = await reader.read();
+    chunk = chunk ? utf8Decoder.decode(chunk) : "";
+    setMoreInfo(chunk);
   }
   useEffect(() => {
     fetchData(Constants.ActionNetwork);
@@ -127,6 +140,7 @@ function App() {
     setActivePage(pageNumber);
     setStart(s);
   }
+
   const directionOptions = [
     { asc: "Ascending (a-z, or older first)" },
     { desc: "Descending (z-a or most recent first)" }
@@ -235,97 +249,7 @@ function App() {
           <div id="featuredGrid">{featuContent()}</div>
         </div>
         <div className="col-md-3">
-          <h3>More information</h3>
-          <a
-            href="https://sustainabledevelopment.un.org/sdgsummit#acceleration-actions"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="//sustainabledevelopment.un.org/content/images/SDG_AccelerationActions_flyer2.png"
-              alt="SDG Acceleration Actions flyer"
-              className="img-fluid"
-            ></img>
-          </a>
-          <p></p>
-          <p>
-            Submissions will be reviewed by DESA in accordance with a set of
-            criteria (
-            <a href="//sustainabledevelopment.un.org/sdgsummit#acceleration-actions">
-              see FAQ for details
-            </a>
-            ). Governments, businesses and other stakeholders making the most
-            innovative, ambitious and impactful commitments will be invited to
-            announce their SDG Acceleration Actions to the media via the VIP
-            social media studio or the SDG Media Zone.
-          </p>
-          <p>Registration is now open online.</p>
-          <p>
-            <strong>More information:</strong>
-          </p>
-          <ul>
-            <li>
-              <a href="/partnership/register/?source=90">
-                Register your SDG Acceleration Action
-              </a>
-            </li>
-            <li>
-              <a
-                href="/content/documents/23771General_Information_SDG_Acceleration_Actions_Call.pdf"
-                target="_blank"
-              >
-                Information Note
-              </a>
-            </li>
-          </ul>
-          <p>
-            <strong>SDG Acceleration Actions - promotional flyers:</strong>
-          </p>
-          <ul>
-            <li>
-              <a
-                href="/content/documents/SDG_Acceleration_Actions_flyer_AR.pdf"
-                target="_blank"
-              >
-                AR
-              </a>{" "}
-              |
-              <a
-                href="/content/documents/SDG_Acceleration_Actions_flyer_ZH.pdf"
-                target="_blank"
-              >
-                ZH{" "}
-              </a>{" "}
-              |
-              <a
-                href="/content/documents/SDG_Acceleration_Actions_flyer_EN.pdf"
-                target="_blank"
-              >
-                EN{" "}
-              </a>{" "}
-              |
-              <a
-                href="/content/documents/SDG_Acceleration_Actions_flyer_FR.pdf"
-                target="_blank"
-              >
-                FR{" "}
-              </a>{" "}
-              |
-              <a
-                href="/content/documents/SDG_Acceleration_Actions_flyer_RU.pdf"
-                target="_blank"
-              >
-                RU{" "}
-              </a>{" "}
-              |
-              <a
-                href="/content/documents/SDG_Acceleration_Actions_flyer_ES.pdf"
-                target="_blank"
-              >
-                ES{" "}
-              </a>
-            </li>
-          </ul>
+          <div dangerouslySetInnerHTML={{ __html: moreInfo }}></div>
         </div>
       </div>
       <div className="row">
