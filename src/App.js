@@ -30,6 +30,7 @@ function App() {
   const [total, setTotal] = useState(0);
   const [comsPerSDGs, setComsPerSDGs] = useState({});
   const [moreInfo, setMoreInfo] = useState({});
+  const [introPara, setIntroPara] = useState({});
   const [featured, setFeatured] = useState([]);
   const Rows = 10;
   async function fetchData(
@@ -109,17 +110,30 @@ function App() {
       });
     }
 
-    if (Object.entries(moreInfo).length === 0) {
-      fetchHTML();
+    if (
+      Object.entries(moreInfo).length === 0 ||
+      Object.entries(introPara).length === 0
+    ) {
+      fetchHTML(Constants.HTMLFOLDER);
     }
   }
-  async function fetchHTML() {
+  async function fetchHTML(folder) {
     const utf8Decoder = new TextDecoder("utf-8");
-    const res = await fetch(process.env.PUBLIC_URL + "/accel/moreinfo.html");
+    const res = await fetch(
+      process.env.PUBLIC_URL + "/" + folder + "/moreinfo.html"
+    );
     const reader = res.body.getReader();
-    let { value: chunk, done: readerDone } = await reader.read();
+    let { value: chunk } = await reader.read();
     chunk = chunk ? utf8Decoder.decode(chunk) : "";
     setMoreInfo(chunk);
+
+    const res2 = await fetch(
+      process.env.PUBLIC_URL + "/" + folder + "/intropara.html"
+    );
+    const reader2 = res2.body.getReader();
+    let { value: chunk2 } = await reader2.read();
+    chunk2 = chunk2 ? utf8Decoder.decode(chunk2) : "";
+    setIntroPara(chunk2);
   }
   useEffect(() => {
     fetchData(Constants.ActionNetwork);
@@ -175,7 +189,7 @@ function App() {
     labels: graphKeys(),
     datasets: [
       {
-        label: "Number of acceleration actions",
+        label: "Number of " + Constants.NAMEPLURAL,
         data: graphVals(),
         backgroundColor: Constants.SDGCOLORS.slice(1)
       }
@@ -210,6 +224,12 @@ function App() {
     <div className="App">
       <div className="row">
         <div className="col">
+          <h1 id="main-title">{Constants.TITLE}</h1>
+          {Object.entries(introPara).length === 0 ? (
+            `Loading...`
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: introPara }}></div>
+          )}
           <h2 id="subtitle">{total > 0 ? `Total: ` + total : `Loading...`}</h2>
         </div>
       </div>
@@ -223,7 +243,7 @@ function App() {
               maintainAspectRatio: true,
               title: {
                 display: true,
-                text: "Number of Acceleration Actions per SDG",
+                text: "Number of " + Constants.NAMEPLURAL + " per SDG",
                 fontSize: 16,
                 lineHeight: 1.8
               },
@@ -249,7 +269,11 @@ function App() {
           <div id="featuredGrid">{featuContent()}</div>
         </div>
         <div className="col-md-3">
-          <div dangerouslySetInnerHTML={{ __html: moreInfo }}></div>
+          {Object.entries(moreInfo).length === 0 ? (
+            `Loading...`
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: moreInfo }}></div>
+          )}
         </div>
       </div>
       <div className="row">
