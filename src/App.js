@@ -170,20 +170,12 @@ function App() {
   const featuContent = () => {
     const content = [];
     let f = featured;
-    for (let i = 0; i < featured.length; i += 2) {
+    for (let i = 0; i < featured.length; i++) {
       content.push(
-        <div className="row">
-          <CommitmentFeatured
-            key={f[i].commitment_nr}
-            commitment={f[i]}
-          ></CommitmentFeatured>
-          {f[i + 1] && (
-            <CommitmentFeatured
-              key={f[i + 1].commitment_nr}
-              commitment={f[i + 1]}
-            ></CommitmentFeatured>
-          )}
-        </div>
+        <CommitmentFeatured
+          key={f[i].commitment_nr}
+          commitment={f[i]}
+        ></CommitmentFeatured>
       );
     }
     if (f.length > 0)
@@ -245,7 +237,9 @@ function App() {
       <div className="row">
         <div className="col-md-9">
           <h3>Featured</h3>
-          {featuContent()}
+          <div id="featuredGrid">
+            {featuContent()}
+          </div>
         </div>
         <div className="col-md-3">
           <h3>More information</h3>
