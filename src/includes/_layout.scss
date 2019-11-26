@@ -4,9 +4,9 @@
 // margin, and padding.
 ////////////////////////
 
-// @media (max-width: $screen-xs-min){
-//
-//
+
+// body::before {
+//     content: "#{$screen-sm-max}";
 // }
 
 @media (max-width: $screen-xs-max) {
@@ -28,6 +28,13 @@
             display: block;
             margin-bottom: 0.5em;
         }
+    }
+}
+
+// 991px
+@media (max-width: $screen-sm-max) {
+    #featuredGrid {
+        columns: 1 !important;
     }
 }
 
