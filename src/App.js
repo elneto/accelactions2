@@ -169,17 +169,16 @@ function App() {
   };
   const featuContent = () => {
     let content = featured.map(commitment => {
-      
-      return <CommitmentFeatured
+      return (
+        <CommitmentFeatured
           key={commitment.commitment_nr}
           commitment={commitment}
         ></CommitmentFeatured>
+      );
     });
 
-    if (featured.length > 0)
-      return content;
-    else
-      return `Loading...`;
+    if (featured.length > 0) return content;
+    else return `Loading...`;
   };
   const willShowTotal = () => {
     let message = <div>Browse</div>;
@@ -190,16 +189,14 @@ function App() {
         </div>
       );
     }
-    if (total > 0 )
-      return message;
-    else
-      return `Loading...`;
+    if (total > 0) return message;
+    else return `Loading...`;
   };
   return (
     <div className="App">
       <div className="row">
         <div className="col">
-          <h2 id="subtitle">{total > 0 ? `Total: `+ total : `Loading...`}</h2>
+          <h2 id="subtitle">{total > 0 ? `Total: ` + total : `Loading...`}</h2>
         </div>
       </div>
       <div className="row">
@@ -235,9 +232,7 @@ function App() {
       <div className="row">
         <div className="col-md-9">
           <h3>Featured</h3>
-          <div id="featuredGrid">
-            {featuContent()}
-          </div>
+          <div id="featuredGrid">{featuContent()}</div>
         </div>
         <div className="col-md-3">
           <h3>More information</h3>
@@ -370,15 +365,14 @@ function App() {
       <p>&nbsp;</p>
       <div className="row">
         <div className="col">
-          {
-            commitments.length > 0 ?
-            Object.keys(commitments).map((key, index) => (
-              <Commitment
-                key={commitments[key].commitment_nr}
-                commitment={commitments[key]}
-              ></Commitment>
-            )) : `Loading...`
-          }
+          {commitments.length > 0
+            ? Object.keys(commitments).map((key, index) => (
+                <Commitment
+                  key={commitments[key].commitment_nr}
+                  commitment={commitments[key]}
+                ></Commitment>
+              ))
+            : `Loading...`}
           <div
             style={{
               display: "flex",
