@@ -21,7 +21,7 @@ export const SDGCOLORS = [
 //export const URL = "http://sustdevlocal.un.org/api1/";
 export const URL = "https://sustainabledevelopment.un.org/api1/";
 export const HTMLFOLDER =
-  typeof window.FOLDER !== "undefined" ? window.FOLDER : "accel";
+  typeof window.HTMLFOLDER !== "undefined" ? window.HTMLFOLDER : "accel";
 export const TITLE =
   typeof window.TITLE !== "undefined"
     ? window.TITLE
