@@ -9,6 +9,7 @@ import { Bar } from "react-chartjs-2";
 import * as Constants from "./constants";
 import { FEATUREDARRAY } from "./constants/index.js";
 import resizingFunctions from "./constants/resizing.js";
+require("es6-promise").polyfill();
 function rnToHTMLObj(str, maxchar, commitment_nr) {
   const regex = /\\+r\\+n/gi;
   let clean = str.replace(regex, "<br>");
@@ -109,7 +110,6 @@ function App() {
           .catch(err => console.log("API SDGS error: " + err));
       });
     }
-
     if (
       Object.entries(moreInfo).length === 0 ||
       Object.entries(introPara).length === 0
@@ -118,22 +118,12 @@ function App() {
     }
   }
   async function fetchHTML(folder) {
-    const utf8Decoder = new TextDecoder("utf-8");
-    const res = await fetch(
-      process.env.PUBLIC_URL + "/" + folder + "/moreinfo.html"
-    );
-    const reader = res.body.getReader();
-    let { value: chunk } = await reader.read();
-    chunk = chunk ? utf8Decoder.decode(chunk) : "";
-    setMoreInfo(chunk);
-
-    const res2 = await fetch(
-      process.env.PUBLIC_URL + "/" + folder + "/intropara.html"
-    );
-    const reader2 = res2.body.getReader();
-    let { value: chunk2 } = await reader2.read();
-    chunk2 = chunk2 ? utf8Decoder.decode(chunk2) : "";
-    setIntroPara(chunk2);
+    fetch(process.env.PUBLIC_URL + "/" + folder + "/moreinfo.html")
+      .then(res => res.text())
+      .then(body => setMoreInfo(body));
+    fetch(process.env.PUBLIC_URL + "/" + folder + "/intropara.html")
+      .then(res => res.text())
+      .then(body => setIntroPara(body));
   }
   useEffect(() => {
     fetchData(Constants.ActionNetwork);
@@ -154,7 +144,6 @@ function App() {
     setActivePage(pageNumber);
     setStart(s);
   }
-
   const directionOptions = [
     { asc: "Ascending (a-z, or older first)" },
     { desc: "Descending (z-a or most recent first)" }
@@ -204,7 +193,6 @@ function App() {
         ></CommitmentFeatured>
       );
     });
-
     if (featured.length > 0) return content;
     else return `Loading...`;
   };
